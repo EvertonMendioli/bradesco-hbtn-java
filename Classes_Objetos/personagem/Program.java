@@ -13,11 +13,3 @@ public class Program {
             System.out.printf("Nome: %s - Saude: %d\n", personagem2.nome, personagem2.saudeAtual);
         }
     }
-    rizzo@ubuntu:Classes_Objetos/personagem$
-    rizzo@ubuntu:Classes_Objetos/personagem$ ls
-    Program.java  PersonagemGame.java
-    rizzo@ubuntu:Classes_Objetos/personagem$ javac Program.java
-    rizzo@ubuntu:Classes_Objetos/personagem$ java Program
-    Nome: Sonic - Saude: 10
-    Nome: Mario - Saude: 100
-}
