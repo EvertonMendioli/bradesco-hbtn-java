@@ -56,9 +56,9 @@ for (ItemPedido itemPedido : itens) {
             //qtdeLivro += itemPedido.getQuantidade()* itemPedido.getProduto().obterPrecoLiquido();
           System.out.printf("\nTipo: " + tipo + 
         "  Titulo: " + itemPedido.getProduto().getTitulo() + 
-        "  Preco: "   + itemPedido.getProduto().getPrecoBruto() + 
+        "  Preco: "   + String.format("%.2f",itemPedido.getProduto().getPrecoBruto()) + 
         "  Quantidade: " + itemPedido.getQuantidade() + 
-        "  Total:  " + itemPedido.getProduto().getPrecoBruto() * itemPedido.getQuantidade());
+        "  Total:  " + String.format("%.2f",itemPedido.getProduto().getPrecoBruto() * itemPedido.getQuantidade()));
         
 
 
@@ -66,10 +66,11 @@ for (ItemPedido itemPedido : itens) {
         double totalGeral= total - (total * (getPercentualDesconto()/100));
         String resultado = 
         "\n----------------------------\n" 
-        +"DESCONTO: " + total * (getPercentualDesconto()/100)
-        +"\nTOTAL PRODUTOS:  " + total 
-        + "----------------------------\n" 
-        +"TOTAL PEDIDO: "   + totalGeral;
+        +"DESCONTO: " + (String.format("%.2f",total * (getPercentualDesconto()/100))) 
+        +"\nTOTAL PRODUTOS:  " + (String.format("%.2f",total)) 
+        + "\n----------------------------\n" 
+        +"TOTAL PEDIDO: "   + String.format("%.2f",totalGeral)
+        + "\n----------------------------\n";
 
         System.out.printf(resultado);
 
