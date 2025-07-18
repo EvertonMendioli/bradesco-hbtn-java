@@ -57,8 +57,8 @@ for (ItemPedido itemPedido : itens) {
           System.out.printf("\nTipo: " + tipo + 
         "  Titulo: " + itemPedido.getProduto().getTitulo() + 
         "  Preco: "   + String.format("%.2f",itemPedido.getProduto().obterPrecoLiquido()) + 
-        "  Quantidade: " + itemPedido.getQuantidade() + 
-        "  Total:  " + String.format("%.2f",itemPedido.getProduto().obterPrecoLiquido() * itemPedido.getQuantidade()));
+        "  Quant: " + itemPedido.getQuantidade() + 
+        "  Total: " + String.format("%.2f",itemPedido.getProduto().obterPrecoLiquido() * itemPedido.getQuantidade()));
         
 
 
@@ -67,7 +67,7 @@ for (ItemPedido itemPedido : itens) {
         String resultado = 
         "\n----------------------------\n" 
         +"DESCONTO: " + (String.format("%.2f",total * (getPercentualDesconto()/100))) 
-        +"\nTOTAL PRODUTOS:  " + (String.format("%.2f",total)) 
+        +"\nTOTAL PRODUTOS: " + (String.format("%.2f",total)) 
         + "\n----------------------------\n" 
         +"TOTAL PEDIDO: "   + String.format("%.2f",totalGeral)
         + "\n----------------------------\n";
