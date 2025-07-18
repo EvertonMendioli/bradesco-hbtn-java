@@ -52,13 +52,13 @@ for (ItemPedido itemPedido : itens) {
                 tipo = "Livro";
             }
             qtde += itemPedido.getQuantidade();
-            total += itemPedido.getProduto().getPrecoBruto() * itemPedido.getQuantidade();
+            total += itemPedido.getProduto().obterPrecoLiquido() * itemPedido.getQuantidade();
             //qtdeLivro += itemPedido.getQuantidade()* itemPedido.getProduto().obterPrecoLiquido();
           System.out.printf("\nTipo: " + tipo + 
         "  Titulo: " + itemPedido.getProduto().getTitulo() + 
-        "  Preco: "   + String.format("%.2f",itemPedido.getProduto().getPrecoBruto()) + 
+        "  Preco: "   + String.format("%.2f",itemPedido.getProduto().obterPrecoLiquido()) + 
         "  Quantidade: " + itemPedido.getQuantidade() + 
-        "  Total:  " + String.format("%.2f",itemPedido.getProduto().getPrecoBruto() * itemPedido.getQuantidade()));
+        "  Total:  " + String.format("%.2f",itemPedido.getProduto().obterPrecoLiquido() * itemPedido.getQuantidade()));
         
 
 
