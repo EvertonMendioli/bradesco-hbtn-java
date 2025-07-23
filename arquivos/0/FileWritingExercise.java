@@ -24,10 +24,10 @@ try {
             String texto = "";
 
 
-        for(int i=0; i<=10000; i++){
+        while (true) {
             System.out.print("Digite varias linhas de texto: ");
             texto = scanner.nextLine();  
-            if(texto.equalsIgnoreCase("Sair")){
+            if("sair".equalsIgnoreCase(texto)){
               break;
             }
                 bufferedWriter.write(texto);
