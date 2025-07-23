@@ -10,7 +10,23 @@ public class FileReadingExercise {
     public static void main(String[] args) {
         String fileName = "exemplo.txt"; // Nome do arquivo fixo para leitura
 
-        Scanner scanner;
+       try {
+        FileReader fileReader = new FileReader(fileName);
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+            System.out.println("Conteúdo do arquivo 'exemplo.txt':\n");
+            System.out.println(bufferedReader.readLine());
+            System.out.println(bufferedReader.readLine());
+            System.out.println(bufferedReader.readLine());
+            System.out.println(bufferedReader.readLine());
+            System.out.println("\nLeitura do arquivo concluída.");
+            } catch (IOException e) {
+                
+                e.printStackTrace();
+            }
+
+
+
+       /* Scanner scanner;
         try {
             scanner = new Scanner(new File(fileName), "UTF-8");
             System.out.println("Conteúdo do arquivo 'exemplo.txt':\n");
@@ -21,7 +37,7 @@ public class FileReadingExercise {
             System.out.println("\nLeitura do arquivo concluída.");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
 
         // efetue a leitura do arquivo
 
