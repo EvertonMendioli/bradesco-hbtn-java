@@ -12,10 +12,10 @@ public class CsvFileReader {
         while ((linha = bufferedReader.readLine())!= null) {
         String[] valor = linha.split(",");
 
-           System.out.println("Funcionario: " + valor[0]);
-           System.out.println("Idade: " + valor[1]);
-           System.out.println("Departamento: " + valor[2]);
-           System.out.println("Salarial: " + valor[3]);
+           System.out.println("Funcionario: " + valor[0].trim());
+           System.out.println("Idade: " + valor[1].trim());
+           System.out.println("Departamento: " + valor[2].trim());
+           System.out.println("Salarial: " + valor[3].trim());
            System.out.println("------------------------");
 
         }
