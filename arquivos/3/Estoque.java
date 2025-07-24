@@ -1,6 +1,8 @@
 import java.io.*;
 import java.nio.file.*;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Estoque {
 
@@ -14,14 +16,6 @@ public class Estoque {
 
         Produto produto;
         try {
-            int novoID=1;
-            while (true) {
-                if (!verificarID(novoID)){
-                    break;
-                }
-                novoID++;
-            }
-        
             int linhaAtual = 0;
             
                 FileReader fileReader = new FileReader(nomeArquivo);
@@ -34,7 +28,7 @@ public class Estoque {
                         arquivoTemporario.add(produto.toCsv());
                 }
 
-                produto = new Produto(novoID, nome, quantidade, preco);
+                produto = new Produto(verificarID(), nome, quantidade, preco);
                 arquivoTemporario.add(produto.toCsv());
     
                         Path nomeArquivoOriginal = Paths.get(nomeArquivo);
@@ -196,29 +190,33 @@ public class Estoque {
 
     }
 
-    public boolean verificarID(int Id) {
+    public int verificarID() {
+        int ultimoID = 0;  
         try {
             FileReader fileReader = new FileReader(nomeArquivo);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-
+            ArrayList<String> ids = new ArrayList();
             String linha;
             while ((linha = bufferedReader.readLine()) != null) {
                 String[] valor = linha.split(",");
 
-                if (Integer.parseInt(valor[0].trim()) == Id) {
-                    bufferedReader.close();
-                    return true;
-                }
-
+                ids.add(valor[0]);
             }
-
+            Collections.sort(ids);
             bufferedReader.close();
-            return false;
+            
+            
+        if (!ids.isEmpty()) {
+            ultimoID = Integer.parseInt(ids.get(ids.size() - 1)) + 1;
+        }else{
+            ultimoID = 1;
+        }
 
+        
         } catch (IOException e) {
 
             e.printStackTrace();
         }
-        return false;
+        return ultimoID;
     }
 }
