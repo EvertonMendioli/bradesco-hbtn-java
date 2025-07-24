@@ -69,15 +69,14 @@ public class Estoque {
 
             }
             bufferedWriter.close();
+            bufferedReader.close();
 
             Path nomeArquivoOriginal = Paths.get(nomeArquivo);
             File novoArquivo = new File("temp.csv");
             
-            if (Files.delete(nomeArquivoOriginal)) {
-                novoArquivo.renameTo(new File(nomeArquivo));
-            }else{
-                System.out.println("não deu certo");
-            }
+            Files.delete(nomeArquivoOriginal);
+            novoArquivo.renameTo(new File(nomeArquivo));
+            
 
         } catch (Exception e) {
 
