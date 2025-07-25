@@ -61,12 +61,12 @@ private Map<String, Contato> contatos;
                 for (Map.Entry<String, Contato> entry : contatos.entrySet()) {
                     if(entry.getKey().equalsIgnoreCase(nome)){
                          contatos.remove(entry.getKey());
-                         System.out.println("Contato  " + entry.getKey() + " removido com sucesso!" );
+                         System.out.println("Contato " + entry.getKey() + " removido com sucesso!" );
                          existe = true;
                     }
                 }
                 if(!existe){
-                    System.out.println("Contato  " + nome + " não encontrado." );
+                    System.out.println("Contato " + nome + " não encontrado." );
                 }
 
 
