@@ -48,7 +48,6 @@ private Map<String, Contato> contatos;
                     if(entry.getKey().equalsIgnoreCase(nome)){
                     System.out.println("Contato encontrado: " + entry.getKey() );
                     entry.getValue().exibirContato();
-                    System.out.println("\n");
                     }
                 }
 
