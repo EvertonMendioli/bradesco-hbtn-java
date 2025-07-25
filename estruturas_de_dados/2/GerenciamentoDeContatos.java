@@ -57,8 +57,20 @@ private Map<String, Contato> contatos;
         
             // Remove um contato pelo nome
             public void removerContato(String nome) {
-                // IMPLEMENTE ESTE METODO
-                contatos.remove(nome);
+                boolean existe = false;
+                for (Map.Entry<String, Contato> entry : contatos.entrySet()) {
+                    if(entry.getKey().equalsIgnoreCase(nome)){
+                         contatos.remove(entry.getKey());
+                         System.out.println("Contato  " + entry.getKey() + " removido com sucesso!" );
+                         existe = true;
+                    }
+                }
+                if(!existe){
+                    System.out.println("Contato  " + nome + " não encontrado." );
+                }
+
+
+                
             }
 
             public static void main(String[] args){
