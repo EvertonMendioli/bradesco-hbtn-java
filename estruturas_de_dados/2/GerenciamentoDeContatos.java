@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class GerenciamentoDeContatos {
 private Map<String, Contato> contatos;
@@ -13,26 +14,44 @@ private Map<String, Contato> contatos;
         // Adiciona um novo contato
         public void adicionarContato(String nome, String telefone, String email) {
             Contato contatoVar = new Contato();
+            boolean existe = false;
+            for (Map.Entry<String, Contato> entry : contatos.entrySet()) {
+                if(entry.getKey().equalsIgnoreCase(nome)){
+                    System.out.println("Erro: Contato com nome " + nome  + " já existe!");
+                    existe = true;
+                }
+            } 
+            
+            if(!existe){
             contatoVar.adicionarEmail(email);
             contatoVar.adicionarTelefone(telefone);
             contatos.put(nome, contatoVar);
-            
-
+            System.out.println("Contato " + nome  + " adicionado com sucesso!");
+            }
             }
         
         
             // Exibe todos os contatos
             public void exibirContatos() {
-                //contatos.
+                
+                for (Map.Entry<String, Contato> entry : contatos.entrySet()) {
+                    System.out.println("Nome: " + entry.getKey() );
+                    entry.getValue().exibirContato();
+                    System.out.println("-------------------------------");
+                }
             }
         
         
             // Busca um contato pelo nome
             public void buscarContato(String nome) {
-                // IMPLEMENTE ESTE METODO
-                //Contato contatoVar = new Contato();
-                //contatoVar.exibirContato();
-                contatos.containsKey(nome);
+                 for (Map.Entry<String, Contato> entry : contatos.entrySet()) {
+                    if(entry.getKey().equalsIgnoreCase(nome)){
+                    System.out.println("Contato encontrado: " + entry.getKey() );
+                    entry.getValue().exibirContato();
+                    System.out.println("\n");
+                    }
+                }
+
             }
         
         
