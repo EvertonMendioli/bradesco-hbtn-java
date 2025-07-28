@@ -16,7 +16,6 @@ public class PessoasArray {
     public void setNomes(String[] nomes) {
         this.nomes = nomes;
     }
-
     // implementar o método de pesquisaConstante
     public void buscaLinear(String nome){
         boolean encontrado  = false;
@@ -31,7 +30,6 @@ public class PessoasArray {
         }
         if(encontrado==false ){
             throw new IllegalArgumentException("O nome "+ nome + " não se encontra no array de nomes");
-
         }
     }
     }
