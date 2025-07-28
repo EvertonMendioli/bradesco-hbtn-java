@@ -19,19 +19,9 @@ public class PessoasArray {
 
     // implementar o método de pesquisaConstante
     public void pesquisaTempoConstante(int id){
-        
+      
         if(id<=22){
-         int cont = 0;
-        
-        for (String teste0 : getNomes()) {
-          
-            if(cont == id){
-                System.out.println("Nome pesquisado é " + teste0 + " que está na posição "+id);
-            }
-            cont++;
-        }
-
-        
+                System.out.println("Nome pesquisado é " + nomes[id] + " que está na posição "+id);
         }else{
             throw new IllegalArgumentException("O array de nomes possui :22 nomes.");
 
