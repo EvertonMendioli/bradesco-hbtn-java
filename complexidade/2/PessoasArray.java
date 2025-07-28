@@ -26,7 +26,7 @@ public class PessoasArray {
         System.out.println("Procurando o nome: \"" + nome + "\"");
         for(int i = 0; i<nomes.length; i++ ){
          valorMeio = (inicio + fim)/2;
-            System.out.println("Passando pelo indice:" + valorMeio);
+            System.out.println("Passando pelo indice: " + valorMeio);
 
             if (valorMeio==0) {
                 throw new IllegalArgumentException("O nome " + nome + " não se encontra no array de nomes");
