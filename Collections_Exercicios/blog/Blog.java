@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -39,37 +40,33 @@ public class Blog {
         
         Map<String, Integer> map = new HashMap<>();
         
-        List<Post> novaLista = listaPost.stream()
-            .collect(Collectors.groupingBy(Post::getCategoria))
-            .entrySet()
-            .stream()
-            .map(entry -> new Teste(entry.getValue(), entry.getKey(), null))
-            .sorted(Comparator.comparing(Teste::getNome))
-            .collect(Collectors.toList());
-        
-        
-        
-        
-        
         listaPost.sort(Comparator.comparing(Post :: getCategoria));
-
-       
-       
-       
-        List<Post> listarteste = new ArrayList<>(); 
+        int i = 0;
+        for ( Post post : listaPost) {
+            
+            if(map.get(post.getCategoria()) == null){
+                i=1;
+                map.put(post.getCategoria(), i);    
+            }else{
+                i++;
+                map.put(post.getCategoria(), i);
+            }
         
-
-
-        for (Post post : listaPost) {
-
-          
-
-            
-            
         }
-        
+        Map<String, Integer> ordernar = map.entrySet()
+            .stream()
+            .sorted(Map.Entry.comparingByValue())
+            .collect(Collectors.toMap(
+                Map.Entry::getKey,
+                Map.Entry::getValue,
+                (e1, e2) -> e1,
+                LinkedHashMap::new
+            ));
 
-      return map;  
+
+
+
+      return ordernar;  
 
 
 
