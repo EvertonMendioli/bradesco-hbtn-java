@@ -10,7 +10,7 @@ public class ListaTodo {
         this.tarefas = tarefas;
     }
 
-    public void adicionarTarefa(Tarefa tarefa) throws Exception{
+    public void adicionarTarefa(Tarefa tarefa) throws IllegalArgumentException{
         boolean existe = false;
         for (Tarefa item : tarefas) {
             if(item.getIdentificador() == tarefa.getIdentificador()){
@@ -18,7 +18,7 @@ public class ListaTodo {
             }
         }
         if(existe){
-            throw new Exception("Tarefa com identificador " +tarefa.getIdentificador()+ " ja existente na lista");
+            throw new IllegalArgumentException("Tarefa com identificador " +tarefa.getIdentificador()+ " ja existente na lista");
         }else{
         tarefa.modificarDescricao(tarefa.getDescricao());
         tarefas.add(tarefa);
