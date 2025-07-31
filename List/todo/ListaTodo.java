@@ -11,14 +11,18 @@ public class ListaTodo {
     }
 
     public void adicionarTarefa(Tarefa tarefa) throws Exception{
-
+        boolean existe = false;
         for (Tarefa item : tarefas) {
             if(item.getIdentificador() == tarefa.getIdentificador()){
-              throw new Exception("Tarefa com identificador " +tarefa.getIdentificador()+ " ja existente na lista");
+                existe = true;
             }
         }
+        if(existe){
+            throw new Exception("Tarefa com identificador " +tarefa.getIdentificador()+ " ja existente na lista");
+        }else{
         tarefa.modificarDescricao(tarefa.getDescricao());
         tarefas.add(tarefa);
+        }
 
     }
 
