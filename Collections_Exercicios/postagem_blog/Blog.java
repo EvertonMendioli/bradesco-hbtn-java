@@ -56,10 +56,6 @@ public class Blog {
             map.put(categoria, obterPostsPorCategoria(categoria));
         }
 
-        
-
-
-
        
       return map;
         
@@ -67,16 +63,17 @@ public class Blog {
     }
 
 
-        public Map<Autor, Set<Post>> obterTodosPostsPorAutor(){
+    public Map<Autor, Set<Post>> obterTodosPostsPorAutor(){
             
             Map<Autor, Set<Post>> map = new HashMap<>();
+            Set<Autor> chaves = obterTodosAutores();
+            //Set<Autor> chaves2 = new TreeSet<>(obterTodosAutores());
 
-
-        for (Post post : listaPost) {
-            map.put(post.getAutor(), obterPostsPorAutor(post.getAutor()));
+        for (Autor autor : chaves) {
+            map.put(autor, obterPostsPorAutor(autor));
         }
+         map = new TreeMap<>(map);
 
-        
         return map;
     }
 
