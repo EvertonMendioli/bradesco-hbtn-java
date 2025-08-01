@@ -56,7 +56,7 @@ public class Blog {
             map.put(categoria, obterPostsPorCategoria(categoria));
         }
 
-       
+        map = new TreeMap<>(map);
       return map;
         
         
