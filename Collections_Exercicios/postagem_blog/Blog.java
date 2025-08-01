@@ -1,12 +1,4 @@
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Blog {
@@ -62,8 +54,17 @@ public class Blog {
             map.put(post.getCategoria(), obterPostsPorCategoria(post.getCategoria()));
         }
 
+        Map<Categorias, Set<Post>> ordernar = map.entrySet()
+            .stream()
+            .collect(Collectors.toMap(
+                Map.Entry::getKey,
+                Map.Entry::getValue,
+                (e1, e2) -> e2,
+                LinkedHashMap::new
+            ));
+      return ordernar;
         
-        return map;
+        
     }
 
 
@@ -98,25 +99,28 @@ public class Blog {
         
         Map<Categorias, Integer> map = new HashMap<>();
         
-        listaPost.sort(Comparator.comparing(Post :: getCategoria));
-        int i = 0;
         for ( Post post : listaPost) {
             
-            if(map.get(post.getCategoria()) == null){
-                i=1;
-                map.put(post.getCategoria(), i);    
+            if(map.containsKey(post.getCategoria())){
+                map.put(post.getCategoria(), map.get(post.getCategoria()) + 1);
             }else{
-                i++;
-                map.put(post.getCategoria(), i);
+                map.put(post.getCategoria(), 1);
             }
+
+        
         
         }
-        
 
-
-
-
-      return map;  
+        Map<Categorias, Integer> ordernar = map.entrySet()
+            .stream()
+            .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+            .collect(Collectors.toMap(
+                Map.Entry::getKey,
+                Map.Entry::getValue,
+                (e1, e2) -> e2,
+                LinkedHashMap::new
+            ));
+      return ordernar;  
 
 
 
