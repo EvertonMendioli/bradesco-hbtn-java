@@ -49,20 +49,19 @@ public class Blog {
     public Map<Categorias, Set<Post>> obterTodosPostsPorCategorias(){
             Map<Categorias, Set<Post>> map = new HashMap<>();
 
-
-        for (Post post : listaPost) {
-            map.put(post.getCategoria(), obterPostsPorCategoria(post.getCategoria()));
+            Map<Categorias, Integer> mapOrdem =  obterContagemPorCategoria();
+            Set<Categorias> chaves = mapOrdem.keySet();
+        
+        for (Categorias categoria : chaves) {
+            map.put(categoria, obterPostsPorCategoria(categoria));
         }
 
-        Map<Categorias, Set<Post>> ordernar = map.entrySet()
-            .stream()
-            .collect(Collectors.toMap(
-                Map.Entry::getKey,
-                Map.Entry::getValue,
-                (e1, e2) -> e2,
-                LinkedHashMap::new
-            ));
-      return ordernar;
+        
+
+
+
+       
+      return map;
         
         
     }
