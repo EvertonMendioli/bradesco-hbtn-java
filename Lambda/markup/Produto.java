@@ -17,7 +17,7 @@ public class Produto {
 
     public Consumer<Double> atualizarMarkup =  (valor) -> percentualMarkup = valor;
 
-    public Supplier precoComMarkup = () -> preco + (preco * ((percentualMarkup/100) * 1));
+    public Supplier<Double> precoComMarkup = () -> preco + (preco * ((percentualMarkup/100) * 1));
 
     public String getNome() {
         return nome;
