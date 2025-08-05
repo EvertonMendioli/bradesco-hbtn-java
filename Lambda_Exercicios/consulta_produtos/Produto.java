@@ -7,7 +7,7 @@ public class Produto {
     private TiposProduto tipo;
     @Override
     public String toString() {
-        return nome + " " + preco + " " + peso + " "
+        return nome + " " + String.format("%.6f", preco) + " " + String.format("%.6f", peso) + " "
                 + quantidadeEmEstoque + " " + tipo ;
     }
 
