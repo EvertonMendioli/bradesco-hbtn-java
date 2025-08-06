@@ -13,7 +13,7 @@ public class Produto {
     
     @Override
     public String toString() {
-        return "[" + codigo + "] " + nome + " " + categoria + " R$ " + String.format("%.2f", preco);
+        return "[" + codigo + "] " + nome + " " + categoria + " R$ " + String.format("%.2f", preco).replace(".", ",");
     }
     public Produto(int codigo, String nome, CategoriaProduto categoria, double preco) {
         this.codigo = codigo;
