@@ -15,7 +15,7 @@ public class Pedido {
    
     @Override
     public String toString() {
-        return "[" + codigo + "] " +  cliente ;
+        return "[" + codigo + "] " +  cliente.getNome() ;
     }
     public Pedido(int codigo, List<Produto> produtos, Cliente cliente) {
         this.codigo = codigo;
