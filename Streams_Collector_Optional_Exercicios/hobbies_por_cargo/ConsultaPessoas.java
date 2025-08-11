@@ -51,9 +51,13 @@ public class ConsultaPessoas {
     public static Map<String, TreeSet<String>> obterHobbiesPorCargo(List<Pessoa> pessoas){
     
         Map<String, TreeSet<String>> contagem = pessoas.stream()
-        .collect(Collectors.groupingBy(Pessoa::getCargo, 
-                Collectors.toCollection(Pessoa :: getHobbies),   Collectors.toCollection(TreeSet::new)
-                )); 
+    .collect(Collectors.groupingBy(
+        Pessoa::getCargo, 
+        Collectors.flatMapping(
+            pessoa -> pessoa.getHobbies().stream(),
+            Collectors.toCollection(TreeSet::new)
+        )
+    ));
 
 
         return contagem;
