@@ -20,12 +20,13 @@ public class Pessoa implements Comparable<Pessoa> {
         return "[" + codigo + "] " + nome + " " + cargo + " "  + idade + " R$ "
                 + String.format("%.6f", salario).replace(".",",");
     }
-    public Pessoa(int codigo, String nome, String cargo, int idade, double salario) {
+    public Pessoa(int codigo, String nome, String cargo, int idade, double salario, List<String> hobbies) {
         this.codigo = codigo;
         this.nome = nome;
         this.cargo = cargo;
         this.idade = idade;
         this.salario = salario;
+        this.hobbies = hobbies;
     }
     public int getCodigo() {
         return codigo;
