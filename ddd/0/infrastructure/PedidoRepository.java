@@ -15,11 +15,11 @@ public class PedidoRepository {
 
 
     public void salvar(Pedido pedido) {
-        // implementar
+        pedidos.put(pedido.getId(), pedido);
     }
 
 
     public Pedido buscarPorId(String id) {
-        // implementar
+        pedidos.get(id);
     }
 }
