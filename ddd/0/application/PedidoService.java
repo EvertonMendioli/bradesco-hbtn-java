@@ -19,30 +19,31 @@ public class PedidoService {
 
 
     public Pedido criarPedido(Cliente cliente) {
-        Pedido p = new Pedido(cliente);
-        pedidoRepository.salvar(p);
+        Pedido pedido = new Pedido(cliente);
+        pedidoRepository.salvar(pedido);
+        return pedido;
     }
 
 
     public void adicionarProduto(String pedidoId, Produto produto) {
         
-        Pedido p = pedidoRepository.buscarPorId(pedidoId);
-        p.adicionarProduto(produto);
-        pedidoRepository.salvar(p);
+        Pedido pedido = pedidoRepository.buscarPorId(pedidoId);
+        pedido.adicionarProduto(produto);
+        pedidoRepository.salvar(pedido);
 
     }
 
 
     public void pagarPedido(String pedidoId) {
-        Pedido p = pedidoRepository.buscarPorId(pedidoId);
-        p.pagar();
-        pedidoRepository.salvar(p);
+        Pedido pedido = pedidoRepository.buscarPorId(pedidoId);
+        pedido.pagar();
+        pedidoRepository.salvar(pedido);
     }
 
 
     public void cancelarPedido(String pedidoId) {
-        Pedido p = pedidoRepository.buscarPorId(pedidoId);
-        p.cancelar();
-        pedidoRepository.salvar(p);
+        Pedido pedido = pedidoRepository.buscarPorId(pedidoId);
+        pedido.cancelar();
+        pedidoRepository.salvar(pedido);
     }
 }
